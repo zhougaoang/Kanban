@@ -1,0 +1,3 @@
+# Reasonix 会话/运行时数据（不纳入版本库，skills 配置保留）
+.reasonix/tasks/
+.reasonix/desktop-topic-*.json

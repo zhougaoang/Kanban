@@ -1,0 +1,6 @@
+[permissions]
+allow = ["Bash=cd my-app; git log --oneline -10 2>$null; git status 2>$null; git branch -a 2>$null"]
+
+
+[skills]
+paths = ["E:\\ExpoA\\my-app\\.agents\\skills"]

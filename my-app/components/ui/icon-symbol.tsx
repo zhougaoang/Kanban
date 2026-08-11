@@ -18,13 +18,7 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
-  'sun.max.fill': 'sunny',
-  'drop.fill': 'water-drop',
-  'sun.min.fill': 'wb-sunny',
-  'aqi.medium': 'air',
   'person.crop.circle.fill': 'person',
-  'fork.knife': 'restaurant',
-  'cup.and.saucer.fill': 'local-drink',
 } as IconMapping;
 
 /**

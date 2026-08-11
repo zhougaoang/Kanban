@@ -19,7 +19,7 @@ export default function ProfileScreen() {
         color={iconColor}
         style={styles.icon}
       />
-      <ThemedText type="title">我的</ThemedText>
+      <ThemedText type="title" style={styles.title}>我的</ThemedText>
       <ThemedText style={styles.subtitle}>功能开发中，敬请期待</ThemedText>
     </ThemedView>
   );
@@ -34,6 +34,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginBottom: 16,
+    opacity: 0.5,
+  },
+  title: {
+    letterSpacing: -0.5,
   },
   subtitle: {
     marginTop: 8,

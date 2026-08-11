@@ -14,7 +14,7 @@ export default function ExploreScreen() {
   return (
     <ThemedView style={styles.container}>
       <IconSymbol name="paperplane.fill" size={56} color={iconColor} style={styles.icon} />
-      <ThemedText type="title">探索</ThemedText>
+      <ThemedText type="title" style={styles.title}>探索</ThemedText>
       <ThemedText style={styles.subtitle}>功能开发中，敬请期待</ThemedText>
     </ThemedView>
   );
@@ -29,6 +29,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginBottom: 16,
+    opacity: 0.5,
+  },
+  title: {
+    letterSpacing: -0.5,
   },
   subtitle: {
     marginTop: 8,

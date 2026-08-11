@@ -5,24 +5,28 @@
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+/**
+ * Apple Liquid Glass 设计 token（light / dark）
+ * 地面 #f5f5f7（cool）· 表面 #fff / #1c1c1e · accent #0071e3 / #0a84ff
+ */
+const tintColorLight = '#0071e3';
+const tintColorDark = '#0a84ff';
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
+    text: '#1d1d1f',
+    background: '#f5f5f7',
     tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
+    icon: '#6e6e73',
+    tabIconDefault: '#86868b',
     tabIconSelected: tintColorLight,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    text: '#f5f5f7',
+    background: '#000000',
     tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
+    icon: '#a1a1a6',
+    tabIconDefault: '#86868b',
     tabIconSelected: tintColorDark,
   },
 };

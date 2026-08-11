@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   Easing,
@@ -16,8 +16,7 @@ import { runOnJS } from 'react-native-worklets';
 import Svg, { Circle } from 'react-native-svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Panel, SectionTitle, useTokens } from '@/components/ui/liquid-glass';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
@@ -36,46 +35,6 @@ const FOOD_OPTIONS: Record<FoodCategory, readonly string[]> = {
 
 const FOOD_LABELS: readonly FoodCategory[] = ['主食', '蛋白质', '蔬菜'];
 
-/* ------------------------------------------------------------------ */
-/* Apple Liquid Glass token（按明暗主题取）                              */
-/* ------------------------------------------------------------------ */
-function useTokens() {
-  const colorScheme = useColorScheme();
-  const scheme = colorScheme ?? 'light';
-  return {
-    scheme,
-    ground: Colors[scheme].background, // #f5f5f7 / #000
-    surface: scheme === 'light' ? '#FFFFFF' : '#1C1C1E',
-    text: Colors[scheme].text, // #1d1d1f / #f5f5f7
-    secondary: scheme === 'light' ? '#424245' : '#a1a1a6',
-    meta: Colors[scheme].icon, // #6e6e73 / #a1a1a6
-    hairline: scheme === 'light' ? 'rgba(0,0,0,0.07)' : 'rgba(255,255,255,0.12)',
-    accent: Colors[scheme].tint, // #0071e3 / #0a84ff
-    track: scheme === 'light' ? '#E8E8ED' : '#2C2C2E',
-    buttonText: scheme === 'light' ? '#FFFFFF' : '#000000',
-  };
-}
-
-/** 统一白色面板：圆角 18、双层轻阴影、hairline 描边（暗色模式无阴影） */
-function Panel({ children }: { children: ReactNode }) {
-  const { surface, hairline, scheme } = useTokens();
-  return (
-    <View
-      style={[
-        styles.panel,
-        { backgroundColor: surface, borderColor: hairline },
-        scheme === 'light' && styles.panelShadow,
-      ]}>
-      {children}
-    </View>
-  );
-}
-
-/** 面板外小标题（iOS grouped section header：13px meta 灰） */
-function SectionTitle({ children }: { children: ReactNode }) {
-  const { meta } = useTokens();
-  return <Text style={[styles.sectionTitle, { color: meta }]}>{children}</Text>;
-}
 
 /* ------------------------------------------------------------------ */
 /* ① 顶部板块：天气（静态数据）                                          */
@@ -426,25 +385,6 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 24,
     paddingBottom: 32,
-  },
-  sectionTitle: {
-    fontSize: 13,
-    fontWeight: '500',
-    marginBottom: 6,
-    marginLeft: 4,
-  },
-  panel: {
-    borderRadius: 18,
-    borderWidth: StyleSheet.hairlineWidth,
-    padding: 18,
-  },
-  panelShadow: {
-    // 双层轻阴影（panel tier）：0 1px 3px / 0 14px 40px，RN 取主层近似
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.05,
-    shadowRadius: 24,
-    elevation: 2,
   },
 
   /* 天气面板 */

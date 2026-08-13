@@ -28,9 +28,9 @@ const WATER_STROKE = 8;
 type FoodCategory = '主食' | '蛋白质' | '蔬菜';
 
 const FOOD_OPTIONS: Record<FoodCategory, readonly string[]> = {
-  主食: ['米饭', '馒头', '面条', '红薯'],
-  蛋白质: ['鸡胸肉', '牛肉', '鸡蛋', '三文鱼'],
-  蔬菜: ['西兰花', '菠菜', '生菜', '黄瓜'],
+  主食: ['土豆', '南瓜', '玉米', '红薯', '燕麦'],
+  蛋白质: ['鸡蛋', '鸡胸肉', '虾', '北豆腐', '千张'],
+  蔬菜: ['西兰花', '菠菜', '生菜', '黄瓜', '上海青'],
 };
 
 const FOOD_LABELS: readonly FoodCategory[] = ['主食', '蛋白质', '蔬菜'];
